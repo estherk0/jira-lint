@@ -64,9 +64,8 @@ async function run(): Promise<void> {
     const defaultAdditionsCount = 800;
     const prThreshold: number = PR_THRESHOLD ? Number(PR_THRESHOLD) : defaultAdditionsCount;
 
-    console.log("core.getInput", core.getInput('skip-pr-threshold', { required: false }));
-    console.log("core.getInput === 'true'", core.getInput('skip-pr-threshold', { required: false }) === 'true');
-    console.log("SKIP_PR_THRESHOLD ", SKIP_PR_THRESHOLD);
+    core.info("SKIP_PR_THRESHOLD ", SKIP_PR_THRESHOLD);
+
     const {
       payload: {
         repository,
@@ -178,7 +177,7 @@ async function run(): Promise<void> {
             ...commonPayload,
             body: getPRTitleComment(details.summary, title),
           };
-          console.log('Adding comment for the PR title');
+          core.Info('Adding comment for the PR title');
           addComment(client, prTitleComment);
         }
 
@@ -189,7 +188,7 @@ async function run(): Promise<void> {
               ...commonPayload,
               body: getHugePrComment(additions, prThreshold),
             };
-            console.log('Adding comment for huge PR');
+            core.Info('Adding comment for huge PR');
             addComment(client, hugePrComment);
           }
         }
