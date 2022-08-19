@@ -338,9 +338,9 @@ export const getNoIdComment = (branch: string): string => {
 <p>Without the JIRA Issue ID in your branch name you would lose out on automatic updates to JIRA via SCM; some GitHub status checks might fail.</p>
 Valid sample branch names:
 
-  ‣ feature/shiny-new-feature--mojo-10'
-  ‣ 'chore/changelogUpdate_mojo-123'
-  ‣ 'bugfix/fix-some-strange-bug_GAL-2345'
+  ‣ 'TSE-1234'
+  ‣ 'TTP-3434-second-try'
+  ‣ 'fix-xx-if-you-dont-have-jira-card-only'
 `;
 };
 
